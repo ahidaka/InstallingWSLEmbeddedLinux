@@ -125,7 +125,7 @@ WSLのインポート前の動作確認と、トラブル発生時の動作確�
 
 ダウンロード URL（弊社運営オンラインショップ）:
 
-**https://shop.dics.net/eshop/temp/train01.zip**
+[**https://shop.dics.net/eshop/temp/train01.zip**](https://shop.dics.net/eshop/temp/train01.zip)
 
 ### 展開
 
