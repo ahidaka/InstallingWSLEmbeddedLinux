@@ -11,6 +11,8 @@ Installing an Embedded Linux Environment Using WSL
 ソース：
 [https://github.com/ahidaka/InstallingWSLEmbeddedLinux/](https://github.com/ahidaka/InstallingWSLEmbeddedLinux/)
 
+この資料は必要に応じて更新する場合があります。ご注意ください。
+
 
 ## Linuxデバイス・ドライバ開発入門 ハンズオン環境インストール方法の解説
 
@@ -339,13 +341,13 @@ Windows の管理者権限のPowerShell で、次の6行のコマンドを順番
 > Start-Service sshd
 ```
 
-3. 有効化状態を確認し、スタートアップ起動を設定します。
+4. 有効化状態を確認し、スタートアップ起動を設定します。
 ```cmd
 > Get-Service sshd
 > Set-Service -Name sshd -StartupType 'Automatic'
 ```
 
-4. OpenSSH サインイン シェルにWSL bash.exe を設定します。この設定をしないとPowerShellが割り当てられます。
+5. OpenSSH サインイン シェルにWSL bash.exe を設定します。この設定をしないとPowerShellが割り当てられます。
 ```cmd
 > New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell   -Value "C:\WINDOWS\System32\bash.exe" -PropertyType String -Force
 ```
