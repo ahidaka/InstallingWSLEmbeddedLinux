@@ -5,7 +5,14 @@ Installing an Embedded Linux Environment Using WSL
 
 [テーマ②：Linuxデバイス・ドライバ開発入門](https://seminar.cqpub.co.jp/ccm/ES24-0111)
 
-Linuxデバイス・ドライバ開発入門 ハンズオン環境インストール方法の解説
+公開先：
+[https://ahidaka.github.io/InstallingWSLEmbeddedLinux/](https://ahidaka.github.io/InstallingWSLEmbeddedLinux/)
+
+ソース：
+[https://github.com/ahidaka/InstallingWSLEmbeddedLinux/](https://github.com/ahidaka/InstallingWSLEmbeddedLinux/)
+
+
+## Linuxデバイス・ドライバ開発入門 ハンズオン環境インストール方法の解説
 
 WSL2 Ubuntu-20.04 を使用する デバイス・ドライバ開発ハンズオンセミナ配布用のWSL2イメージを使用して、ハンズオン環境のインストールと準備方法を示します。
 
