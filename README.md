@@ -3,7 +3,9 @@ Installing an Embedded Linux Environment Using WSL
 
 [【特別企画】～i.MX8で学ぶ～ 組み込みLinuxハンズオン・セミナ](https://interface.cqpub.co.jp/linux-hands-on/)
 
-Linuxデバイス・ドライバ開発入門 環境インストール方法の解説
+[テーマ②：Linuxデバイス・ドライバ開発入門](https://seminar.cqpub.co.jp/ccm/ES24-0111)
+
+Linuxデバイス・ドライバ開発入門 ハンズオン環境インストール方法の解説
 
 WSL2 Ubuntu-20.04 を使用する デバイス・ドライバ開発ハンズオンセミナ配布用のWSL2イメージを使用して、ハンズオン環境のインストールと準備方法を示します。
 
@@ -63,6 +65,13 @@ BIOS仮想化オプション設定項目名：
 Intel: VMX または VTx, VTT, VT-d など
 AMD: SVM Mode または AMD-V など
 ```
+### bash.exe のインストール
+
+ハンズオンでは使用しませんが、コントロールパネルで操作して「Linux 用 Windows サブシステム」を有効化します。これにより bash.exe がインストールされ、トラブル時などに利用できます。
+
+
+![Linux 用 Windows サブシステム](wslp.png)
+
 ### インストールと動作確認
 
 WSLを実際にインストールして動作確認します。
@@ -286,7 +295,7 @@ gcc version 12.2.1 20221205 (Arm GNU Toolchain 12.2.Rel1 (Build arm-12.24))
 
 ### 削除
 
-ハンズオン終了後に、使用しなくなったWSLイメージの削除は前項のトラブル対応とほぼ同じです。
+ハンズオン終了後の使用しなくなったWSLイメージの削除は、前項のトラブル対応とほぼ同じです。
 
 wsl の停止を確認して、%LOCALAPPDATA%\CQHandsOn-01 フォルダーを削除、次のコマンドでインストール済ディストリビューションを削除します。
 ```cmd
@@ -303,43 +312,42 @@ wsl の停止を確認して、%LOCALAPPDATA%\CQHandsOn-01 フォルダーを削
 
 #### 設定手順
 
-Windows の管理者権限のPowerShell で、順番に以下を実行します。
+Windows の管理者権限のPowerShell で、次の6行のコマンドを順番に実行します。
 
-1. Linux 用 Windows サブシステムの有効化
-
-    コントロールパネルで操作して「Linux 用 Windows サブシステム」を有効化します。bash.exe がインストールされます。
-
-    ![Linux 用 Windows サブシステム](wslp.png)
-
-2. サービス状態確認
+1. サービス状態確認
 
    OpenSSHサービス状態を確認します。
 ```cmd
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 ```
 
-3. sshd サービスを有効化（5～10分ぐらい時間がかかります）
+2. OpenSSHサービスインストール（5～10分ぐらい時間がかかります）
+```cmd
+> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
+
+3. sshd サービスを起動
 ```cmd
 > Start-Service sshd
 ```
 
-4. 有効状態を確認し、スタートアップ起動を設定します。
+3. 有効化状態を確認し、スタートアップ起動を設定します。
 ```cmd
 > Get-Service sshd
 > Set-Service -Name sshd -StartupType 'Automatic'
 ```
 
-5. OpenSSH サインイン シェルにWSL bashを設定します。この設定をしないとPowerShellが割り当てられます。
+4. OpenSSH サインイン シェルにWSL bash.exe を設定します。この設定をしないとPowerShellが割り当てられます。
 ```cmd
 > New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell   -Value "C:\WINDOWS\System32\bash.exe" -PropertyType String -Force
 ```
 
-    リモートからWSKにアクセスするためには、Windows の対象アカウントにはパスワード設定が必要な点に注意が必要です。
+リモートからWSLにアクセスするためには、Windows の対象アカウントにパスワード設定が必要な点に注意が必要です。
 
 
 #### 関連情報
 
-- リモートアクセス設定のYouTune 動画
+- 前記リモートアクセス設定のYouTune 動画（途中から始まります）
 
     https://youtu.be/S78OAxQjPoA&t=513
 
