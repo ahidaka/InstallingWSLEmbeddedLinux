@@ -123,8 +123,9 @@ WSLのインポート前の動作確認と、トラブル発生時の動作確�
 以下からハンズオン環境用のWSL圧縮イメージをダウンロードしておきます。
 **約40GB あります。大容量なので注意してください。**
 
-ダウンロード URL（弊社運営オンラインショップ内）:
-https://shop.dics.net/eshop/temp/train01.zip
+ダウンロード URL（弊社運営オンラインショップ）:
+
+**https://shop.dics.net/eshop/temp/train01.zip**
 
 ### 展開
 
