@@ -3,7 +3,7 @@ Installing an Embedded Linux Environment Using WSL
 
 [【特別企画】～i.MX8で学ぶ～ 組み込みLinuxハンズオン・セミナ](https://interface.cqpub.co.jp/linux-hands-on/)
 
-[テーマ②：Linuxデバイス・ドライバ開発入門](https://seminar.cqpub.co.jp/ccm/ES24-0111)
+[テーマ⑤：Linuxデバイス・ドライバ開発入門](https://seminar.cqpub.co.jp/ccm/ES24-0111)
 
 公開先：
 [https://ahidaka.github.io/InstallingWSLEmbeddedLinux/](https://ahidaka.github.io/InstallingWSLEmbeddedLinux/)
